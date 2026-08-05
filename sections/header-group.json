@@ -35,10 +35,14 @@
       "type": "custom-header",
       "name": "Custom Header",
       "settings": {
+        "menu_icon": "shopify://shop_images/Group_1000008115.svg",
+        "close_icon": "shopify://shop_images/Group_1000008115_1.svg",
+        "logo": "shopify://shop_images/Group_1000007777_b19f71d7-52b1-41f6-ab2a-b052663c50a0.svg",
         "logo_text": "TISSO VISION",
         "announcement": "Find the ideal gift for your loved ones.",
         "button_text": "CHOOSE GIFT",
-        "button_link": ""
+        "button_link": "",
+        "button_icon": "shopify://shop_images/Line_15_7594ac66-6bb7-4bf5-8847-2cabca44678d.svg"
       }
     }
   },
