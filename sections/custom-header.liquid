@@ -1,0 +1,104 @@
+<header class="custom-header">
+  <div class="page-width">
+
+    <!-- Desktop Header -->
+    <div class="custom-header__desktop">
+
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="custom-header__logo">
+        {% if section.settings.logo != blank %}
+          {{
+            section.settings.logo
+            | image_url: width: 250
+            | image_tag
+          }}
+        {% else %}
+          <span>{{ section.settings.logo_text }}</span>
+        {% endif %}
+      </a>
+
+      <!-- CTA Button -->
+      <div class="custom-header__button">
+        <a href="{{ section.settings.button_link }}">
+          {{ section.settings.button_text }}
+
+          {% if section.settings.button_icon != blank %}
+            {{
+              section.settings.button_icon
+              | image_url: width: 40
+              | image_tag:
+                class: 'custom-header__button-icon',
+                loading: 'lazy',
+                alt: section.settings.button_text
+            }}
+          {% else %}
+            <span>→</span>
+          {% endif %}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "tag": "section",
+  "class": "custom-header-section",
+
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "menu_icon",
+      "label": "Menu Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "close_icon",
+      "label": "Close Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "TISSO VISION"
+    },
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHOOSE GIFT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon (SVG)"
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Custom Header"
+    }
+  ]
+}
+{% endschema %}
