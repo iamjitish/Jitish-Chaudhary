@@ -28,6 +28,11 @@
 
     {% render 'meta-tags' %}
 
+    {% if template.name != "index" %} 
+        {{ 'custom.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+
     <script type="module">
       import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';
 
