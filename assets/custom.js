@@ -1,4 +1,4 @@
-|document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     // Custom Header Initialize
     document.querySelectorAll(".custom-header").forEach((header) => {
@@ -13,7 +13,7 @@
       // mobile Toogle
       toggle.addEventListener("click", () => {
 
-        //  Dropdown toggle
+        // Dropdown toggle
         content.classList.toggle("active");
 
         // Change Menu Icon 
