@@ -1,3 +1,8 @@
+
+jitish chaudhary <jitishchaudhary377@gmail.com>
+9:27 PM (1 hour ago)
+to me
+
 <header class="custom-header">
   <div class="page-width">
 
@@ -16,6 +21,11 @@
           <span>{{ section.settings.logo_text }}</span>
         {% endif %}
       </a>
+
+      <!-- Announcement Text -->
+      <div class="custom-header__announcement">
+        {{ section.settings.announcement }}
+      </div>
 
       <!-- CTA Button -->
       <div class="custom-header__button">
@@ -37,6 +47,74 @@
         </a>
       </div>
 
+    </div>
+
+    <!-- Mobile Header -->
+    <div class="custom-header__mobile">
+
+      <!-- Mobile Top Bar -->
+      <div class="custom-header__mobile-top">
+
+        <!-- Menu Toggle Button -->
+        <button
+          class="custom-header__toggle"
+          type="button"
+          aria-label="Toggle Menu"
+        >
+          <img
+            class="custom-header__toggle-icon"
+            src="{% if section.settings.menu_icon != blank %}{{ section.settings.menu_icon | image_url: width: 24 }}{% endif %}"
+            data-open="{% if section.settings.menu_icon != blank %}{{ section.settings.menu_icon | image_url: width: 24 }}{% endif %}"
+            data-close="{% if section.settings.close_icon != blank %}{{ section.settings.close_icon | image_url: width: 24 }}{% endif %}"
+            width="24"
+            height="24"
+            alt="Menu"
+          >
+        </button>
+
+        <!-- Mobile Logo -->
+        <a href="{{ routes.root_url }}" class="custom-header__logo">
+          {% if section.settings.logo != blank %}
+            {{
+              section.settings.logo
+              | image_url: width: 250
+              | image_tag
+            }}
+          {% else %}
+            <span>{{ section.settings.logo_text }}</span>
+          {% endif %}
+        </a>
+
+      </div>
+
+      <!-- Mobile Dropdown Content -->
+      <div class="custom-header__mobile-content">
+
+        <!-- Announcement -->
+        <div class="custom-header__announcement">
+          {{ section.settings.announcement }}
+        </div>
+
+        <!-- CTA Button -->
+        <div class="custom-header__button">
+          <a href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text }}
+
+            {% if section.settings.button_icon != blank %}
+              {{
+                section.settings.button_icon
+                | image_url: width: 40
+                | image_tag:
+                  class: 'custom-header__button-icon',
+                  loading: 'lazy',
+                  alt: section.settings.button_text
+              }}
+            {% else %}
+              <span>→</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
