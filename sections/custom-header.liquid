@@ -1,180 +1,176 @@
-<div>
 
-  {% if section.settings.bg_image != blank or section.settings.bg_image_mobile != blank %}
-    <div class="gift-guide__background">
-      <picture>
-
-        {% if section.settings.bg_image_mobile != blank %}
-          <source
-            media="(max-width: 767px)"
-            srcset="{{ section.settings.bg_image_mobile | image_url: width: 900 }}">
-        {% endif %}
-
-        {% if section.settings.bg_image != blank %}
-          <img
-            src="{{ section.settings.bg_image | image_url: width: 2200 }}"
-            alt="{{ section.settings.heading | escape }}"
-            class="gift-guide__bg-image"
-            loading="lazy"
-            width=""
-            height="">
-        {% elsif section.settings.bg_image_mobile != blank %}
-          <img
-            src="{{ section.settings.bg_image_mobile | image_url: width: 900 }}"
-            alt="{{ section.settings.heading | escape }}"
-            class="gift-guide__bg-image"
-            loading="lazy"
-            width=""
-            height="">
-        {% endif %}
-
-      </picture>
-    </div>
-  {% endif %}
-
+<header class="custom-header">
   <div class="page-width">
 
-    <div class="gift-guide__wrapper">
+    <!-- Desktop Header -->
+    <div class="custom-header__desktop">
 
-      <div class="gift-guide__content">
-
-        {% if section.settings.heading != blank
-          or section.settings.description != blank
-          or section.settings.mobile_description != blank
-        %}
-
-          <div>
-
-            {% if section.settings.heading != blank %}
-              <h2 class="gift-guide__heading">
-                {{ section.settings.heading }}
-              </h2>
-            {% endif %}
-
-            {% if section.settings.description != blank or section.settings.mobile_description != blank %}
-
-              <div class="gift-guide__description desktop-description">
-                {{ section.settings.description }}
-              </div>
-
-              <div class="gift-guide__description mobile-description">
-                {{ section.settings.mobile_description | default: section.settings.description }}
-              </div>
-
-            {% endif %}
-
-          </div>
-
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="custom-header__logo">
+        {% if section.settings.logo != blank %}
+          {{
+            section.settings.logo
+            | image_url: width: 250
+            | image_tag
+          }}
+        {% else %}
+          <span>{{ section.settings.logo_text }}</span>
         {% endif %}
+      </a>
 
-        {% if section.settings.button_text != blank %}
-          <a href="{{ section.settings.button_link }}" class="gift-guide__button">
+      <!-- Announcement Text -->
+      <div class="custom-header__announcement">
+        {{ section.settings.announcement }}
+      </div>
 
-            <span>{{ section.settings.button_text }}</span>
+      <!-- CTA Button -->
+      <div class="custom-header__button">
+        <a href="{{ section.settings.button_link }}">
+          {{ section.settings.button_text }}
 
-            {% if section.settings.show_arrow %}
-              <svg
-                width="27"
-                height="12"
-                viewBox="0 0 27 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-
-                <path
-                  d="M.75 4.773H0v1.5h.75zm26.038 1.28a.75.75 0 0 0 0-1.06L22.015.22a.75.75 0 0 0-1.061 1.06l4.243 4.243-4.243 4.243a.75.75 0 0 0 1.06 1.06zM.75 6.273h25.507v-1.5H.75z"
-                  fill="#fff" />
-              </svg>
-            {% endif %}
-
-          </a>
-        {% endif %}
-
+          {% if section.settings.button_icon != blank %}
+            {{
+              section.settings.button_icon
+              | image_url: width: 40
+              | image_tag:
+                class: 'custom-header__button-icon',
+                loading: 'lazy',
+                alt: section.settings.button_text
+            }}
+          {% else %}
+            <span>→</span>
+          {% endif %}
+        </a>
       </div>
 
     </div>
 
+    <!-- Mobile Header -->
+    <div class="custom-header__mobile">
+
+      <!-- Mobile Top Bar -->
+      <div class="custom-header__mobile-top">
+
+        <!-- Menu Toggle Button -->
+        <button
+          class="custom-header__toggle"
+          type="button"
+          aria-label="Toggle Menu"
+        >
+          <img
+            class="custom-header__toggle-icon"
+            src="{% if section.settings.menu_icon != blank %}{{ section.settings.menu_icon | image_url: width: 24 }}{% endif %}"
+            data-open="{% if section.settings.menu_icon != blank %}{{ section.settings.menu_icon | image_url: width: 24 }}{% endif %}"
+            data-close="{% if section.settings.close_icon != blank %}{{ section.settings.close_icon | image_url: width: 24 }}{% endif %}"
+            width="24"
+            height="24"
+            alt="Menu"
+          >
+        </button>
+
+        <!-- Mobile Logo -->
+        <a href="{{ routes.root_url }}" class="custom-header__logo">
+          {% if section.settings.logo != blank %}
+            {{
+              section.settings.logo
+              | image_url: width: 250
+              | image_tag
+            }}
+          {% else %}
+            <span>{{ section.settings.logo_text }}</span>
+          {% endif %}
+        </a>
+
+      </div>
+
+      <!-- Mobile Dropdown Content -->
+      <div class="custom-header__mobile-content">
+
+        <!-- Announcement -->
+        <div class="custom-header__announcement">
+          {{ section.settings.announcement }}
+        </div>
+
+        <!-- CTA Button -->
+        <div class="custom-header__button">
+          <a href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text }}
+
+            {% if section.settings.button_icon != blank %}
+              {{
+                section.settings.button_icon
+                | image_url: width: 40
+                | image_tag:
+                  class: 'custom-header__button-icon',
+                  loading: 'lazy',
+                  alt: section.settings.button_text
+              }}
+            {% else %}
+              <span>→</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-
-  {% if section.settings.bottom_text != blank or section.settings.mobile_bottom_text != blank %}
-
-    <div class="gift-guide__announcement desktop-announcement">
-      {{ section.settings.bottom_text }}
-    </div>
-
-    <div class="gift-guide__announcement mobile-announcement">
-      {{ section.settings.mobile_bottom_text | default: section.settings.bottom_text }}
-    </div>
-
-  {% endif %}
-
-</div>
+</header>
 
 {% schema %}
 {
-  "name": "Gift Guide",
+  "name": "Custom Header",
   "tag": "section",
-  "class": "gift-guide",
+  "class": "custom-header-section",
 
-  "settings":[
-  {
-    "type": "image_picker",
-    "id": "bg_image",
-    "label": "Background Image"
-  },
-  {
-  "type": "image_picker",
-  "id": "bg_image_mobile",
-  "label": "Mobile Background Image"
-},
-  {
-    "type": "text",
-    "id": "heading",
-    "label": "Heading",
-    "default": "The Gift Guide"
-  },
-  {
-    "type": "richtext",
-    "id": "description",
-    "label": "Description"
-  },
-  {
-  "type": "richtext",
-  "id": "mobile_description",
-  "label": "Mobile Description"
-},
-  {
-    "type": "text",
-    "id": "button_text",
-    "label": "Button Text",
-    "default": "SHOP NOW"
-  },
-  {
-    "type": "url",
-    "id": "button_link",
-    "label": "Button Link"
-  },
-  {
-    "type": "checkbox",
-    "id": "show_arrow",
-    "label": "Show Arrow",
-    "default": true
-  },
-  {
-    "type": "text",
-    "id": "bottom_text",
-    "label": "Bottom Text",
-    "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
-  },
-  {
-  "type": "text",
-  "id": "mobile_bottom_text",
-  "label": "Mobile Bottom Text"
-}
-],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "menu_icon",
+      "label": "Menu Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "close_icon",
+      "label": "Close Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "TISSO VISION"
+    },
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHOOSE GIFT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon (SVG)"
+    }
+
+  ],
 
   "presets": [
     {
-      "name": "Gift Guide"
+      "name": "Custom Header"
     }
   ]
 }

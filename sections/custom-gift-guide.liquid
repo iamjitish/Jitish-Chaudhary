@@ -1,4 +1,5 @@
 <div>
+
   {% if section.settings.bg_image != blank or section.settings.bg_image_mobile != blank %}
     <div class="gift-guide__background">
       <picture>
@@ -31,6 +32,80 @@
     </div>
   {% endif %}
 
+  <div class="page-width">
+
+    <div class="gift-guide__wrapper">
+
+      <div class="gift-guide__content">
+
+        {% if section.settings.heading != blank
+          or section.settings.description != blank
+          or section.settings.mobile_description != blank
+        %}
+
+          <div>
+
+            {% if section.settings.heading != blank %}
+              <h2 class="gift-guide__heading">
+                {{ section.settings.heading }}
+              </h2>
+            {% endif %}
+
+            {% if section.settings.description != blank or section.settings.mobile_description != blank %}
+
+              <div class="gift-guide__description desktop-description">
+                {{ section.settings.description }}
+              </div>
+
+              <div class="gift-guide__description mobile-description">
+                {{ section.settings.mobile_description | default: section.settings.description }}
+              </div>
+
+            {% endif %}
+
+          </div>
+
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="gift-guide__button">
+
+            <span>{{ section.settings.button_text }}</span>
+
+            {% if section.settings.show_arrow %}
+              <svg
+                width="27"
+                height="12"
+                viewBox="0 0 27 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <path
+                  d="M.75 4.773H0v1.5h.75zm26.038 1.28a.75.75 0 0 0 0-1.06L22.015.22a.75.75 0 0 0-1.061 1.06l4.243 4.243-4.243 4.243a.75.75 0 0 0 1.06 1.06zM.75 6.273h25.507v-1.5H.75z"
+                  fill="#fff" />
+              </svg>
+            {% endif %}
+
+          </a>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {% if section.settings.bottom_text != blank or section.settings.mobile_bottom_text != blank %}
+
+    <div class="gift-guide__announcement desktop-announcement">
+      {{ section.settings.bottom_text }}
+    </div>
+
+    <div class="gift-guide__announcement mobile-announcement">
+      {{ section.settings.mobile_bottom_text | default: section.settings.bottom_text }}
+    </div>
+
+  {% endif %}
 
 </div>
 
