@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Hotspot Product — grid popup & add to cart
+  // Hotspot Product, popup & add to cart
 document.addEventListener("DOMContentLoaded", () => {
 
     function normalizeOption(value) {
@@ -195,9 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.className = "popup-color";
                 btn.dataset.color = color;
                 btn.innerHTML = `
-        <span class="popup-color__swatch" style="background:${color.toLowerCase()}"></span>
-        <span class="popup-color__text">${color}</span>
-    `;
+                    <span class="popup-color__swatch" style="background:${color.toLowerCase()}"></span>
+                    <span class="popup-color__text">${color}</span>
+                `;
                 if (i === 0) btn.classList.add("active");
                 colorContainer.appendChild(btn);
             });

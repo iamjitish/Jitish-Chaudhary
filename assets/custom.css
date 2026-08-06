@@ -632,9 +632,7 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
     transform:scale(1.05);
 }
 
-/*==========================
-Hotspot
-==========================*/
+/* Hotspot */
 
 .vision-gallery__hotspot{
     position:absolute;
@@ -660,9 +658,7 @@ Hotspot
     transform:translate(-50%,-50%) scale(1.1);
 }
 
-/*==========================
-Tablet
-==========================*/
+/* Tablet */
 
 @media(max-width:991px){
 
@@ -676,9 +672,7 @@ Tablet
 
 }
 
-/*==========================
-Mobile
-==========================*/
+/* Mobile */
 
 @media(max-width:767px){
 
@@ -717,9 +711,7 @@ Mobile
 
 }
 
-/* ===========================
-   Vision Popup
-=========================== */
+/* Vision Popup */
 
 .vision-popup{
     position:fixed;
