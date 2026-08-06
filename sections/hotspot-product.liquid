@@ -48,6 +48,61 @@
         </div>
     </div>
 
+    <!-- QUICK SHOP POPUP -->
+    <div class="vision-popup">
+        <div class="vision-popup__overlay"></div>
+        <div class="vision-popup__wrapper">
+            <button
+                class="vision-popup__close"
+                type="button"
+                aria-label="Close"
+            >
+                &times;
+            </button>
+
+            <div class="vision-popup__left">
+                <img src="" alt="" class="popup-image">
+            </div>
+
+            <div class="vision-popup__right">
+                <h3 class="popup-title"></h3>
+                <div class="popup-price"></div>
+                <div class="popup-description"></div>
+            </div>
+
+            <!-- Color -->
+            <div class="popup-group popup-group--color">
+                <label class="popup-label">Color</label>
+                <div class="popup-colors"></div>
+            </div>
+
+            <!-- Size -->
+            <div class="popup-group popup-group--size">
+                <label class="popup-label">Size</label>
+
+                <div class="popup-select">
+                    <select class="popup-size">
+                        <option value="">Choose your size</option>
+                    </select>
+
+                    <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.06067 1.06067L7.06067 7.06067L13.0607 1.06067" stroke="black" stroke-width="1.5" stroke-linecap="square"/>
+                    </svg>
+                </div>
+            </div>
+
+            <button class="popup-cart" type="button">
+                <span>ADD TO CART</span>
+                <svg width="36" height="12" viewBox="0 0 36 12" fill="none">
+                    <path d="M1 6H32" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M27 1L34 6L27 11" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </button>
+            <div class="popup-cart-message"></div>
+        </div>
+
+    </div>
+
 </section>
 
 {% schema %}
