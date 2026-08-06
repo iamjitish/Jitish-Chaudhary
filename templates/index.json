@@ -64,10 +64,85 @@
         "bottom_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
         "mobile_bottom_text": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
       }
+    },
+    "hotspot_product_XegJ8T": {
+      "type": "hotspot-product",
+      "blocks": {
+        "hotspot_gbVm9n": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+            "product": "black-leather-bag",
+            "top": 50,
+            "left": 50
+          }
+        },
+        "hotspot_x6DNky": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/man-adjusts-blue-tuxedo-bowtie_925x_55a49e12-d54b-488e-b7a0-ea4c201eb01f.jpg",
+            "product": "blue-silk-tuxedo",
+            "top": 50,
+            "left": 50
+          }
+        },
+        "hotspot_aj4C44": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/red-plaid-shirt_925x_70e9e5a8-8fc5-4d60-9a9a-cc2e0dd57cc9.jpg",
+            "product": "chequered-red-shirt",
+            "top": 59,
+            "left": 44
+          }
+        },
+        "hotspot_tEP7tP": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/leather-jacket-and-tea_925x_2490cde1-7e61-4151-9a65-de8a763bc701.jpg",
+            "product": "classic-leather-jacket",
+            "top": 50,
+            "left": 50
+          }
+        },
+        "hotspot_cx4bVG": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/casual-fashion-woman_925x_56b56608-f207-45c1-b677-bb5aa26c1c7a.jpg",
+            "product": "classic-varsity-top",
+            "top": 50,
+            "left": 50
+          }
+        },
+        "hotspot_J8KcAW": {
+          "type": "hotspot",
+          "settings": {
+            "image": "shopify://shop_images/young-female-models-denim_925x_44c2cf9e-4030-4347-9d4a-f0e4a1479b4a.jpg",
+            "product": "dark-denim-top",
+            "top": 50,
+            "left": 50
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_gbVm9n",
+        "hotspot_x6DNky",
+        "hotspot_aj4C44",
+        "hotspot_tEP7tP",
+        "hotspot_cx4bVG",
+        "hotspot_J8KcAW"
+      ],
+      "name": "Hotspot Product",
+      "settings": {
+        "heading": "Tisso vision in the wild",
+        "bonus_product": "dark-winter-jacket",
+        "trigger_color": "Black",
+        "trigger_size": "Medium"
+      }
     }
   },
   "order": [
     "image_banner",
-    "custom_gift_guide_XJLzPt"
+    "custom_gift_guide_XJLzPt",
+    "hotspot_product_XegJ8T"
   ]
 }
