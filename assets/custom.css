@@ -32,7 +32,7 @@
   font-size: 34px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: lowe;
+  text-transform: uppercase;
 }
 
 /* Announcement */
@@ -193,27 +193,24 @@
     height: 19px;
   }
 
-  /* Mobile Dropdown */
+  /* Mobile Dropdown — expands in-flow so page content pushes down */
 
   .custom-header__mobile-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-    box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+    box-sizing: border-box;
 
     background: #f2f2f2;
 
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-
-    z-index: -1;
+    padding: 0;
 
     transition:
       max-height 0.35s ease,
@@ -224,17 +221,15 @@
   /* Mobile Dropdown Active State */
 
   .custom-header__mobile-content.active {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
     max-height: 600px;
-    padding: 25px;
+    padding: 25px 16px;
 
     opacity: 1;
   }
 
+
   /* Mobile Announcement */
+
   .custom-header__mobile .custom-header__announcement {
     margin: 0;
     text-align: center;
@@ -541,6 +536,8 @@
         width: 100%;
         height: auto !important;
     }
+
+
 }
 
 .desktop-description{
